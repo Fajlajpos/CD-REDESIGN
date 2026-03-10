@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>České dráhy | Prestižní cestování</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Extracted CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- OVERLAYS -->
+    <div class="noise-texture"></div>
+
+    <!-- HEADER -->
+    <header id="header">
+        <a href="#" class="logo">
+            <img src="data:image/png;base64,PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPG1ldGEgY2hhcnNldD0idXRmLTgiPgo8dGl0bGU+V2lraW1lZGlhIEVycm9yPC90aXRsZT4KPHN0eWxlPgoqIHsgbWFyZ2luOiAwOyBwYWRkaW5nOiAwOyB9CmJvZHkgeyBiYWNrZ3JvdW5kOiAjZmZmOyBmb250OiAxNXB4LzEuNiBzYW5zLXNlcmlmOyBjb2xvcjogIzMzMzsgfQouY29udGVudCB7IG1hcmdpbjogNyUgYXV0byAwOyBwYWRkaW5nOiAyZW0gMWVtIDFlbTsgbWF4LXdpZHRoOiA2NDBweDsgZGlzcGxheTogZmxleDsgZmxleC1kaXJlY3Rpb246IHJvdzsgZmxleC13cmFwOiB3cmFwOyB9Ci5mb290ZXIgeyBjbGVhcjogYm90aDsgbWFyZ2luLXRvcDogMTQlOyBib3JkZXItdG9wOiAxcHggc29saWQgI2U1ZTVlNTsgYmFja2dyb3VuZDogI2Y5ZjlmOTsgcGFkZGluZzogMmVtIDA7IGZvbnQtc2l6ZTogMC44ZW07IHRleHQtYWxpZ246IGNlbnRlcjsgfQppbWcgeyBtYXJnaW46IDAgMmVtIDJlbSAwOyB9CmEgaW1nIHsgYm9yZGVyOiAwOyB9CmgxIHsgbWFyZ2luLXRvcDogMWVtOyBmb250LXNpemU6IDEuMmVtOyB9Ci5jb250ZW50LXRleHQgeyBmbGV4OiAxOyB9CnAgeyBtYXJnaW46IDAuN2VtIDAgMWVtIDA7IH0KYSB7IGNvbG9yOiAjMDY0NWFkOyB0ZXh0LWRlY29yYXRpb246IG5vbmU7IH0KYTpob3ZlciB7IHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lOyB9CmNvZGUgeyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsgfQpzdW1tYXJ5IHsgZm9udC13ZWlnaHQ6IGJvbGQ7IGN1cnNvcjogcG9pbnRlcjsgfQpkZXRhaWxzW29wZW5dIHsgYmFja2dyb3VuZDogIzk3MDMwMjsgY29sb3I6ICNkZmRlZGQ7IH0KLnRleHQtbXV0ZWQgeyBjb2xvcjogIzc3NzsgfQpAbWVkaWEgKHByZWZlcnMtY29sb3Itc2NoZW1lOiBkYXJrKSB7CiAgYSB7IGNvbG9yOiAjOWU5ZWZmOyB9CiAgYm9keSB7IGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OyBjb2xvcjogI2RkZDsgfQogIC5mb290ZXIgeyBib3JkZXItdG9wOiAxcHggc29saWQgIzQ0NDsgYmFja2dyb3VuZDogIzA2MDYwNjsgfQogICNsb2dvIHsgZmlsdGVyOiBpbnZlcnQoMSkgaHVlLXJvdGF0ZSgxODBkZWcpOyB9CiAgLnRleHQtbXV0ZWQgeyBjb2xvcjogIzg4ODsgfQp9Cjwvc3R5bGU+CjxtZXRhIG5hbWU9ImNvbG9yLXNjaGVtZSIgY29udGVudD0ibGlnaHQgZGFyayI+CjxkaXYgY2xhc3M9ImNvbnRlbnQiIHJvbGU9Im1haW4iPgo8YSBocmVmPSJodHRwczovL3d3dy53aWtpbWVkaWEub3JnIj48aW1nIGlkPSJsb2dvIiBzcmM9Imh0dHBzOi8vd3d3Lndpa2ltZWRpYS5vcmcvc3RhdGljL2ltYWdlcy93bWYtbG9nby5wbmciIHNyY3NldD0iaHR0cHM6Ly93d3cud2lraW1lZGlhLm9yZy9zdGF0aWMvaW1hZ2VzL3dtZi1sb2dvLTJ4LnBuZyAyeCIgYWx0PSJXaWtpbWVkaWEiIHdpZHRoPSIxMzUiIGhlaWdodD0iMTAxIj4KPC9hPgo8ZGl2IGNsYXNzPSJjb250ZW50LXRleHQiPgo8aDE+RXJyb3I8L2gxPgoKPHA+VXNlIHRodW1ibmFpbCBzdGVwcyBsaXN0ZWQgb24gaHR0cHM6Ly93Lndpa2kvR0hhaS4gUGxlYXNlIGNvbnRhY3Qgbm9jQHdpa2ltZWRpYS5vcmcgZm9yIGZ1cnRoZXIgaW5mb3JtYXRpb24gKGE3NjU5MTMpPC9wPgo8L2Rpdj4KPC9kaXY+CjxkaXYgY2xhc3M9ImZvb3RlciI+PHA+SWYgeW91IHJlcG9ydCB0aGlzIGVycm9yIHRvIHRoZSBXaWtpbWVkaWEgU3lzdGVtIEFkbWluaXN0cmF0b3JzLCBwbGVhc2UgaW5jbHVkZSB0aGUgZGV0YWlscyBiZWxvdy48L3A+PHAgY2xhc3M9InRleHQtbXV0ZWQiPjxjb2RlPlJlcXVlc3Qgc2VydmVkIHZpYSBjcDYwMDggY3A2MDA4LCBWYXJuaXNoIFhJRCA1MTE1NzgyMTA8YnI+VXBzdHJlYW0gY2FjaGVzOiBjcDYwMDggaW50PGJyPkVycm9yOiA0MjksIFVzZSB0aHVtYm5haWwgc3RlcHMgbGlzdGVkIG9uIGh0dHBzOi8vdy53aWtpL0dIYWkuIFBsZWFzZSBjb250YWN0IG5vY0B3aWtpbWVkaWEub3JnIGZvciBmdXJ0aGVyIGluZm9ybWF0aW9uIChhNzY1OTEzKSBhdCBUdWUsIDEwIE1hciAyMDI2IDE4OjI5OjUwIEdNVDxicj48ZGV0YWlscz48c3VtbWFyeT5TZW5zaXRpdmUgY2xpZW50IGluZm9ybWF0aW9uPC9zdW1tYXJ5PklQIGFkZHJlc3M6IDM3LjQ4LjM1LjY8L2RldGFpbHM+PC9jb2RlPjwvcD4KPC9kaXY+CjwvaHRtbD4K"
+                alt="České dráhy Logo" class="logo-cd-img">
+            <span class="logo-subtitle">Premium</span>
+        </a>
+        <nav class="nav-main">
+            <ul>
+                <li><a href="#">Jízdní řád</a></li>
+                <li><a href="#">Naše vlaky</a></li>
+                <li><a href="#">Typy jízdenek</a></li>
+                <li><a href="#">Další služby</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <nav class="nav-secondary">
+                <ul>
+                    <li><a href="#">E-shop</a></li>
+                    <li><a href="#">Pro firmy</a></li>
+                    <li><a href="#">International</a></li>
+                </ul>
+            </nav>
+            <div class="lang-switcher-wrap">
+                <img src="https://flagcdn.com/w20/cz.png" alt="CZ" class="flag-icon">
+                <select class="lang-switcher">
+                    <option>CZ</option>
+                    <option>EN</option>
+                    <option>DE</option>
+                </select>
+            </div>
+            <a href="#" class="login-link">Vyhledávání</a>
+        </div>
+    </header>
+
+    <!-- HERO WITH AUTHENTIC SEARCH WIDGET -->
+    <section class="hero" id="search">
+        <div class="hero-video-wrap" id="parallax-bg">
+            <img src="https://images.unsplash.com/photo-1534341991054-972cb832ddb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+                alt="Premium Modern Blue Train on Tracks" class="hero-bg-img">
+        </div>
+
+        <div class="hero-content">
+            <h1 class="hero-title reveal-up">Najděte své <span class="gold-text">přepychové spojení</span></h1>
+
+            <div class="cd-search-widget reveal-up" style="transition-delay: 0.2s;">
+                <div class="widget-tabs">
+                    <button class="tab active">Spojení</button>
+                    <button class="tab">Jízdenka</button>
+                    <button class="tab">Místenka</button>
+                </div>
+
+                <form class="cd-search-form" onsubmit="event.preventDefault();">
+                    <div class="form-row locations-row">
+                        <div class="input-block">
+                            <label>Odkud</label>
+                            <input type="text" placeholder="Zadejte stanici..." value="Praha hl.n.">
+                        </div>
+
+                        <button class="swap-btn" type="button" title="Prohodit stanice">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 4L20 8M20 8L16 12M20 8H4M8 20L4 16M4 16L8 12M4 16H20" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+
+                        <div class="input-block">
+                            <label>Kam</label>
+                            <input type="text" placeholder="Zadejte stanici..." value="Wien Hbf">
+                        </div>
+                    </div>
+
+                    <div class="form-row filters-row">
+                        <a href="#" class="add-via">+ Přidat stanici 'Přes'</a>
+                    </div>
+
+                    <div class="form-row datetime-row">
+                        <div class="input-block">
+                            <label>Kdy</label>
+                            <input type="date" id="date-input">
+                        </div>
+                        <div class="input-block time-block">
+                            <label>Čas</label>
+                            <input type="time" value="08:00">
+                        </div>
+                        <div class="input-block toggle-block">
+                            <label class="radio-label">
+                                <input type="radio" name="time-type" checked>
+                                <span class="custom-radio"></span>Odjezd
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="time-type">
+                                <span class="custom-radio"></span>Příjezd
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row passenger-row">
+                        <div class="input-block passenger-select">
+                            <label>Kdo cestuje</label>
+                            <div class="passenger-dropdown-trigger">
+                                <span class="passenger-text">1 Cestující (26-64 let)</span>
+                                <span class="dropdown-icon">▼</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row actions-row">
+                        <button type="submit" class="btn-submit">
+                            VYHLEDAT SPOJENÍ
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="live-ticker">
+            <div class="status-dot"></div>
+            <div class="ticker-text">
+                <span class="ticker-label">Ontime Performance</span>
+                <span class="ticker-value">PERFEKTNÍ • 0 zpoždění dnes</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BAR / QUCIK LINKS (Matches the cards often below hero on CD.cz) -->
+    <section class="trust-section">
+        <div class="trust-grid">
+            <div class="trust-item reveal-up">
+                <div class="trust-icon">⏱</div>
+                <div class="trust-number counter" data-target="0">0</div>
+                <div class="trust-desc">Průměrné zpoždění (min)</div>
+            </div>
+            <div class="trust-item reveal-up" style="transition-delay: 0.1s;">
+                <div class="trust-icon">✨</div>
+                <div class="trust-number counter" data-target="100" data-suffix="%">0</div>
+                <div class="trust-desc">Spokojenost s komfortem</div>
+            </div>
+            <div class="trust-item reveal-up" style="transition-delay: 0.2s;">
+                <div class="trust-icon">🏆</div>
+                <div class="trust-number counter" data-target="5" data-suffix="★">0</div>
+                <div class="trust-desc">Pětihvězdičkový servis</div>
+            </div>
+            <div class="trust-item reveal-up" style="transition-delay: 0.3s;">
+                <div class="trust-icon">🛡</div>
+                <div class="trust-number counter" data-target="99" data-suffix=".9%">0</div>
+                <div class="trust-desc">Spolehlivost sítě</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMOTIONS (Instead of full classes, simplified like on CD.cz homepage) -->
+    <section id="classes" class="classes-section">
+        <h2 class="section-title reveal-up">Aktuální <span class="gold-text">nabídky</span></h2>
+        <div class="classes-grid">
+
+            <div class="class-card premium reveal-up">
+                <div class="premium-badge">Exkluzivně</div>
+                <div class="class-icon" style="text-shadow: 0 0 20px rgba(201,168,76,0.5);">👑</div>
+                <h3 class="class-name gold-text">In Karta Premium</h3>
+                <p class="class-desc">Nejlepší ceny, luxusní salónky a osobní stevard pro věrnostní program In Karta s
+                    nejvyšší úrovní pětihvězdičkového cestování.</p>
+                <a href="#" class="text-link">Více o programu ➝</a>
+            </div>
+
+            <div class="class-card reveal-up" style="transition-delay: 0.2s;">
+                <div class="class-icon">🌙</div>
+                <h3 class="class-name">Noční vlaky sítě</h3>
+                <p class="class-desc">Probuďte se ve své cílové destinaci odpočinutí jako v luxusním hotelu. Zůstáváte
+                    ve středu dění i v klidu na cestách.</p>
+                <a href="#" class="text-link">Rezervovat lůžko ➝</a>
+            </div>
+
+            <div class="class-card reveal-up" style="transition-delay: 0.4s;">
+                <div class="class-icon">🍽</div>
+                <h3 class="class-name">Gastronomie na palubě</h3>
+                <p class="class-desc">Vychutnejte si degustační a la carte menu v ceně jízdenky nejvyšší třídy. Zážitky
+                    z orientálního expresu ve vlaku CD.</p>
+                <a href="#" class="text-link">Zobrazit jídelní lístek ➝</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid reveal-up">
+            <div class="footer-brand">
+                <div class="logo"><span class="shimmer">ČD Prestige</span></div>
+                <p class="footer-desc">Národní dopravce. Redefinujeme standardy železniční dopravy ve Střední Evropě.
+                    Přinášíme luxus, absolutní přesnost a osobní přístup do každodenního cestování.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Vlakem po Evropě</h4>
+                <ul>
+                    <li><a href="#">Jízdní řád</a></li>
+                    <li><a href="#">Místenky, Lůžka</a></li>
+                    <li><a href="#">Stanice a tratě</a></li>
+                    <li><a href="#">Zpoždění a mimořádnosti</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>České dráhy</h4>
+                <ul>
+                    <li><a href="#">O nás</a></li>
+                    <li><a href="#">Tiskové zprávy</a></li>
+                    <li><a href="#">Kariéra v první třídě</a></li>
+                    <li><a href="#">Udržitelnost</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontakt</h4>
+                <ul>
+                    <li><a href="#">Zákonná práva cestujících</a></li>
+                    <li><a href="#">Hodnocení kvality</a></li>
+                    <li><a href="#">Kontaktní centrum 24/7</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 České dráhy, a.s. - Budoucnost prémiového cestování.</div>
+            <div>Designed with Elegance.</div>
+        </div>
+    </footer>
+
+    <!-- Extracted External JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
