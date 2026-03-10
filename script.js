@@ -1,4 +1,39 @@
-// --- Header Scroll Effect ---
+
+// --- Live Departure Board ---
+const board = document.getElementById('departure-board');
+const trainData = [
+    { time: '20:15', dest: 'Berlin Hbf', id: 'EC 178', status: 'ON TIME' },
+    { time: '20:22', dest: 'Brno hl.n.', id: 'rj 375', status: 'ON TIME' },
+    { time: '20:30', dest: 'Paris Est', id: 'NJ 456', status: '+5 MIN' },
+    { time: '20:45', dest: 'Ostrava-Svinov', id: 'IC 511', status: 'ON TIME' },
+    { time: '20:58', dest: 'Zürich HB', id: 'EN 404', status: 'ON TIME' }
+];
+
+function updateBoard() {
+    if (!board) return;
+    board.innerHTML = '';
+    trainData.forEach(train => {
+        const isDelayed = train.status.includes('+');
+        const row = document.createElement('div');
+        row.className = 'board-row reveal-up active';
+        row.innerHTML = `
+            <div class="train-time">${train.time}</div>
+            <div class="train-dest">${train.dest}</div>
+            <div class="train-id">${train.id}</div>
+            <div class="train-status ${isDelayed ? 'status-delayed' : 'status-ontime'}">${train.status}</div>
+        `;
+        board.appendChild(row);
+    });
+}
+
+// Initial update and periodic refresh
+updateBoard();
+setInterval(() => {
+    // Subtle "jitter" simulation or update logic could go here
+    updateBoard();
+}, 60000);
+
+// --- Original Scroll Effects (Enhanced) ---
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
@@ -8,30 +43,8 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// --- Parallax Effect ---
-const parallaxBg = document.getElementById('parallax-bg');
-window.addEventListener('scroll', () => {
-    const scroll = window.scrollY;
-    if (scroll < window.innerHeight && parallaxBg) {
-        parallaxBg.style.transform = `translateY(${scroll * 0.4}px)`;
-    }
-});
+// --- Parallax Effect Removed ---
 
-// --- Intersection Observer for Reveals ---
-const revealElements = document.querySelectorAll('.reveal-up');
-const revealOptions = {
-    threshold: 0.15,
-    rootMargin: "0px 0px -50px 0px"
-};
-const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            observer.unobserve(entry.target);
-        }
-    });
-}, revealOptions);
-revealElements.forEach(el => revealObserver.observe(el));
 
 // --- Animated Counters in Trust Bar ---
 const counters = document.querySelectorAll('.counter');
@@ -45,22 +58,21 @@ if (counterSection) {
             counters.forEach(counter => {
                 const updateCount = () => {
                     const target = +counter.getAttribute('data-target');
-                    // current parsed string without non-digits (excluding dots)
-                    const current = +counter.innerText.replace(/[^\d.]/g, '');
+                    const currentString = counter.innerText.replace(/[^\d.]/g, '');
+                    const current = currentString === '' ? 0 : +currentString;
                     const suffix = counter.getAttribute('data-suffix') || '';
 
-                    // slow increment
-                    let inc = target / 60;
-                    if (target < 10) inc = 0.1; // for rating
+                    let inc = target / 50;
+                    if (target < 10) inc = 0.1;
 
                     if (current < target) {
                         let nextVal = current + inc;
                         if (target % 1 === 0 && target > 10) {
                             counter.innerText = Math.ceil(nextVal) + suffix;
                         } else {
-                            counter.innerText = nextVal.toFixed(1) + suffix; // one decimal precision
+                            counter.innerText = nextVal.toFixed(1) + suffix;
                         }
-                        setTimeout(updateCount, 40);
+                        setTimeout(updateCount, 30);
                     } else {
                         counter.innerText = target + suffix;
                     }
@@ -68,7 +80,7 @@ if (counterSection) {
                 updateCount();
             });
         }
-    }, { threshold: 0.5 });
+    }, { threshold: 0.2 });
     counterObserver.observe(counterSection);
 }
 
@@ -78,17 +90,6 @@ if (dateInput) {
     const today = new Date().toISOString().split('T')[0];
     dateInput.setAttribute('min', today);
     dateInput.value = today;
-}
-
-// --- Button Ripple / Click Effect ---
-const submitBtn = document.querySelector('.btn-submit');
-if (submitBtn) {
-    submitBtn.addEventListener('click', function (e) {
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            this.style.transform = 'translateY(-3px)';
-        }, 100);
-    });
 }
 
 // --- Tab Switching Logic (Decorative) ---
