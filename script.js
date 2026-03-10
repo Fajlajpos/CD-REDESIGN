@@ -1,26 +1,25 @@
 
 // --- Live Departure Board ---
 const board = document.getElementById('departure-board');
-const trainData = [
-    { time: '20:15', dest: 'Berlin Hbf', id: 'EC 178', status: 'ON TIME' },
-    { time: '20:22', dest: 'Brno hl.n.', id: 'rj 375', status: 'ON TIME' },
-    { time: '20:30', dest: 'Paris Est', id: 'NJ 456', status: '+5 MIN' },
-    { time: '20:45', dest: 'Ostrava-Svinov', id: 'IC 511', status: 'ON TIME' },
-    { time: '20:58', dest: 'Zürich HB', id: 'EN 404', status: 'ON TIME' }
+const disruptionData = [
+    { route: 'Praha - Kolín - Brno', desc: 'Plánovaná údržba trakčního vedení', type: 'warning', label: 'Výluka', status: 'AKTIVNÍ' },
+    { route: 'Ostrava - Žilina', desc: 'Mimořádná událost na trati (střet se zvěří)', type: 'emergency', label: 'Mimořádnost', status: 'OMEZENÍ' },
+    { route: 'Plzeň - Mnichov', desc: 'Modernizace železničního uzlu', type: 'warning', label: 'Výluka', status: 'PLÁNOVÁNO' },
+    { route: 'Praha - Berlin', desc: 'Porucha zabezpečovacího zařízení', type: 'emergency', label: 'Zpoždění', status: 'AKTIVNÍ' }
 ];
 
 function updateBoard() {
     if (!board) return;
     board.innerHTML = '';
-    trainData.forEach(train => {
-        const isDelayed = train.status.includes('+');
+    disruptionData.forEach(item => {
         const row = document.createElement('div');
-        row.className = 'board-row reveal-up active';
+        row.className = `board-row reveal-up active type-${item.type}`;
+        const statusClass = item.status === 'PLÁNOVÁNO' ? 'status-planned' : 'status-active';
         row.innerHTML = `
-            <div class="train-time">${train.time}</div>
-            <div class="train-dest">${train.dest}</div>
-            <div class="train-id">${train.id}</div>
-            <div class="train-status ${isDelayed ? 'status-delayed' : 'status-ontime'}">${train.status}</div>
+            <div class="train-time">${item.route}</div>
+            <div class="train-dest">${item.desc}</div>
+            <div class="train-id">${item.label}</div>
+            <div class="train-status ${statusClass}">${item.status}</div>
         `;
         board.appendChild(row);
     });

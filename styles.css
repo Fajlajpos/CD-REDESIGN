@@ -73,18 +73,14 @@ body {
 }
 
 .shimmer {
-    background: linear-gradient(90deg,
-            var(--gold-light) 0%,
-            #fff 45%,
-            #fff 55%,
-            var(--gold-light) 100%);
-    background-size: 200% auto;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: var(--gold-light);
-    /* Fallback and base color */
-    animation: shimmer GoldShimmer 6s linear infinite;
-    -webkit-text-fill-color: transparent;
+    color: #ceb362;
+    /* Less saturated, elegant gold */
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-shadow: none;
+    /* Removed glow effect */
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
 }
 
 /* SHIMMER REMOVED FROM ALL EXCEPT HERO TITLE IF NEEDED, BUT HERE WE KEEP IT FOR THE GOLD TEXT */
@@ -165,7 +161,8 @@ header {
     width: 100%;
     padding: 0.1rem 4%;
     display: flex;
-    justify-content: center; /* Center to narrow with max-width */
+    justify-content: center;
+    /* Center to narrow with max-width */
     align-items: center;
     z-index: 1000;
     background: rgba(2, 12, 23, 0.95);
@@ -1130,7 +1127,7 @@ header.scrolled {
 
 .board-row {
     display: grid;
-    grid-template-columns: 80px 1fr 100px 120px;
+    grid-template-columns: 180px 1fr 150px 120px;
     padding: 1.5rem 2rem;
     border-bottom: 1px solid var(--border-subtle);
     align-items: center;
@@ -1157,6 +1154,16 @@ header.scrolled {
     transition: transform 0.3s ease;
 }
 
+.board-row.type-emergency::before {
+    background: #ff3c3c;
+    transform: scaleY(1);
+}
+
+.board-row.type-warning::before {
+    background: #ff9800;
+    transform: scaleY(1);
+}
+
 .board-row:hover::before {
     transform: scaleY(1);
 }
@@ -1165,23 +1172,43 @@ header.scrolled {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     color: var(--gold-light);
+    font-size: 0.9rem;
+}
+
+.board-row.type-emergency .train-time {
+    color: #ff3c3c;
+}
+
+.board-row.type-warning .train-time {
+    color: #ff9800;
 }
 
 .train-dest {
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    padding-right: 1rem;
 }
 
 .train-id {
     color: var(--text-muted);
-    font-size: 0.8rem;
-    font-family: monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .train-status {
     text-align: right;
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.status-active {
+    color: #ff3c3c;
+}
+
+.status-planned {
+    color: #ff9800;
 }
 
 .status-ontime {
