@@ -401,6 +401,15 @@ header.scrolled {
 }
 
 /* AUTHENTIC CD SEARCH WIDGET LUXURY PORT */
+.cd-search-proximity-wrapper {
+    width: 100%;
+    padding: 30px; /* This expands the hover area around the widget */
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
 .cd-search-widget {
     background: rgba(2, 12, 23, 0.6);
     backdrop-filter: blur(40px) saturate(180%);
@@ -413,13 +422,17 @@ header.scrolled {
     flex-direction: column;
     overflow: hidden;
     position: relative;
-    transition: box-shadow 0.15s ease-out, transform 0.15s ease-out, border-color 0.15s ease;
+    /* Use a longer, smoother transition for the premium feel */
+    transition: box-shadow 0.6s var(--ease-luxury), 
+                transform 0.6s var(--ease-luxury), 
+                border-color 0.6s var(--ease-luxury);
 }
 
-.cd-search-widget:hover {
-    border-color: rgba(0, 0, 0, 0.6);
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.95);
-    transform: translateY(-4px);
+.cd-search-proximity-wrapper:hover .cd-search-widget {
+    border-color: var(--gold-primary);
+    box-shadow: 0 45px 90px rgba(0, 0, 0, 0.85), 
+                0 0 20px rgba(201, 168, 76, 0.1); /* Softened gold glow */
+    transform: translateY(-4px); /* Reduced lift from -8px to -4px */
 }
 
 .cd-search-widget::before {
@@ -430,6 +443,12 @@ header.scrolled {
     width: 100%;
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+    opacity: 0.5;
+    transition: opacity 0.6s ease;
+}
+
+.cd-search-proximity-wrapper:hover .cd-search-widget::before {
+    opacity: 1;
 }
 
 .widget-tabs {
