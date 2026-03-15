@@ -1477,7 +1477,7 @@ footer {
 
 .cinematic-content {
     max-width: 600px;
-    padding-left: var(--container-padding);
+    padding-left: 12rem; /* Pushed significantly further to the right as requested */
 }
 
 .premium-tag {
