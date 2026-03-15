@@ -687,6 +687,7 @@ header.scrolled {
     letter-spacing: 3px;
     border-radius: 2px;
     cursor: pointer;
+    text-decoration: none !important;
     transition: all 0.4s var(--ease-luxury);
     box-shadow: 0 10px 30px rgba(0, 160, 227, 0.2);
 }
@@ -702,9 +703,9 @@ header.scrolled {
 /* TRUST SECTION REDESIGN */
 .trust-section {
     padding: 5rem 6%;
-    background: linear-gradient(to bottom, var(--bg-primary), #051424, var(--bg-primary));
+    background: var(--bg-primary);
     border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
+    border-bottom: none; /* Removed to fix white line before Gastronomy */
 }
 
 .trust-grid {
@@ -1061,7 +1062,7 @@ header.scrolled {
     padding: 1rem 2.5rem;
     border: 1px solid var(--gold-primary);
     color: var(--gold-primary);
-    text-decoration: none;
+    text-decoration: none !important;
     font-weight: 600;
     letter-spacing: 1px;
     transition: var(--transition-fast);
@@ -1071,6 +1072,8 @@ header.scrolled {
     background: var(--gold-primary);
     color: var(--bg-primary);
 }
+
+
 
 /* LIVE DEPARTURES */
 .live-departures {
@@ -1247,7 +1250,7 @@ header.scrolled {
 footer {
     background: #050505;
     padding: 6rem 6% 2rem;
-    border-top: 1px solid var(--border-gold);
+    border-top: none; /* Removed to preserve seamless Gastronomy transition sequence */
 }
 
 .footer-grid {
@@ -1364,6 +1367,394 @@ footer {
     }
 }
 
+/* PREMIUM TAGS & BUTTONS */
+.premium-tag {
+    display: inline-block;
+    color: var(--gold-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 40px;
+}
+
+.premium-tag::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 30px;
+    height: 1px;
+    background: var(--gold-primary);
+}
+
+/* SECTION 9: GASTRONOMY */
+.gastronomy-section {
+    position: relative;
+    padding: 12rem 6%;
+    overflow: hidden;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* SECTION 9: GASTRONOMIE - CINEMATIC FULL-WIDTH */
+.gastronomy-cinematic {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: var(--bg-primary);
+}
+
+.cinematic-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.cinematic-bg .full-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.85;
+    /* EXTENDED CINEMATIC MASKING - Reaches significantly deeper into the photo */
+    -webkit-mask-image: linear-gradient(to bottom, 
+        transparent 0%, 
+        rgba(0, 0, 0, 0.4) 15%, 
+        black 45%, 
+        black 55%, 
+        rgba(0, 0, 0, 0.4) 85%, 
+        transparent 100%
+    );
+    mask-image: linear-gradient(to bottom, 
+        transparent 0%, 
+        rgba(0, 0, 0, 0.4) 15%, 
+        black 45%, 
+        black 55%, 
+        rgba(0, 0, 0, 0.4) 85%, 
+        transparent 100%
+    );
+}
+
+.overlay-gradient {
+    position: absolute;
+    inset: 0;
+    background: 
+        /* ULTRA-SMOOTH CINEMATIC OMBRE - Perfect Seam Control */
+        linear-gradient(to bottom, 
+            var(--bg-primary) 0%, 
+            rgba(2, 12, 23, 0.98) 10%, 
+            rgba(2, 12, 23, 0.4) 30%, 
+            transparent 48%, 
+            transparent 52%, 
+            rgba(2, 12, 23, 0.4) 70%, 
+            rgba(2, 12, 23, 0.98) 90%,
+            var(--bg-primary) 100%
+        ),
+        /* Master framing - Left to Right gloss control */
+        linear-gradient(to right, 
+            var(--bg-primary) 0%, 
+            rgba(2, 12, 23, 0.98) 12%, 
+            rgba(2, 12, 23, 0.8) 30%, 
+            rgba(2, 12, 23, 0) 65%
+        );
+    z-index: 2;
+}
+
+.cinematic-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+.cinematic-content {
+    max-width: 600px;
+    padding-left: var(--container-padding);
+}
+
+.premium-tag {
+    display: block;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--gold-primary);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.cinematic-title {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--text-main);
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.dish-highlight-simple {
+    border-left: 2px solid var(--gold-primary);
+    padding-left: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.dish-highlight-simple h3 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+}
+
+.dish-highlight-simple p {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.btn-cinematic {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    background: var(--gold-primary);
+    color: var(--bg-primary);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    transition: all 0.4s var(--ease-luxury);
+    text-transform: uppercase;
+}
+
+.btn-cinematic:hover {
+    background: var(--gold-light);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(201, 168, 76, 0.3);
+}
+
+@media (max-width: 1024px) {
+    .cinematic-title {
+        font-size: 3.5rem;
+    }
+    
+    .dish-highlight-simple h3 {
+        font-size: 1.8rem;
+    }
+    
+    .overlay-gradient {
+        background: radial-gradient(circle at left, rgba(2, 12, 23, 0.95) 0%, rgba(2, 12, 23, 0.6) 70%, rgba(2, 12, 23, 0.4) 100%);
+    }
+}
+
+@media (max-width: 768px) {
+    .gastronomy-cinematic {
+        height: auto;
+        padding: 8rem 0;
+    }
+    
+    .cinematic-content {
+        padding: 0 6%;
+    }
+    
+    .cinematic-title {
+        font-size: 3rem;
+    }
+}
+
+
+
+.dish-pairing {
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.dish-pairing strong {
+    color: var(--gold-primary);
+}
+
+.btn-submit-small {
+    display: inline-block;
+    background: var(--cd-light-blue);
+    color: #fff;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.btn-submit-small:hover {
+    background: #005a8f;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 160, 227, 0.2);
+}
+/* SECTION 12: PREMIUM SERVICES GRID - DARK COHESION */
+.premium-services-grid-section {
+    padding: 10rem 6%;
+    background: var(--bg-primary);
+}
+
+.section-header-centered {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 6rem;
+}
+
+.section-header-centered .section-title {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--gold-light);
+}
+
+.services-modern-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+}
+
+.service-card-modern {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.4s var(--ease-luxury);
+}
+
+.service-card-modern:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+    border-color: var(--gold-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.service-img-wrap {
+    height: 200px;
+    overflow: hidden;
+}
+
+.service-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.service-card-modern:hover .service-img-wrap img {
+    transform: scale(1.1);
+}
+
+.service-card-content {
+    padding: 2.5rem;
+}
+
+.service-card-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--gold-light);
+}
+
+.service-card-content p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.service-features li {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.service-features li::before {
+    content: '→';
+    color: var(--gold-primary);
+}
+
+
+/* SECTION 11: NIGHTJET */
+.nightjet-section {
+    padding: 8rem 6%;
+    background: var(--bg-primary);
+}
+
+.nightjet-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.nightjet-visual {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.nightjet-visual img {
+    width: 100%;
+    display: block;
+    transition: transform 1.5s var(--ease-luxury);
+}
+
+.nightjet-visual:hover img {
+    transform: scale(1.05);
+}
+
+.visual-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(2, 12, 23, 0.6), transparent);
+}
+
+.benefit-list {
+    list-style: none;
+    margin: 2.5rem 0;
+}
+
+.benefit-list li {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--text-main);
+}
+
+.benefit-list li span {
+    color: var(--gold-primary);
+    font-size: 1.2rem;
+}
+
+
+
 /* RESPONSIVE DESIGN */
 @media (max-width: 1200px) {
     .hero-title {
@@ -1438,5 +1829,35 @@ footer {
 
     .footer-grid {
         grid-template-columns: 1fr;
+    }
+
+    .gastronomy-layout {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .gastronomy-image {
+        height: 400px;
+    }
+
+    /* GASTRONOMY REFINE MOBILE */
+    .gastronomy-full-image {
+        height: 500px;
+    }
+
+    .image-gradient-overlay {
+        background: linear-gradient(to bottom, transparent 0%, var(--bg-primary) 90%);
+    }
+
+
+    .gastronomy-floating-card {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        max-width: 100%;
+        margin-top: -100px;
+        padding: 3rem 2rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
     }
 }
