@@ -1693,65 +1693,6 @@ footer {
 }
 
 
-/* SECTION 11: NIGHTJET */
-.nightjet-section {
-    padding: 8rem 6%;
-    background: var(--bg-primary);
-}
-
-.nightjet-container {
-    max-width: var(--container-max);
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 6rem;
-    align-items: center;
-}
-
-.nightjet-visual {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-}
-
-.nightjet-visual img {
-    width: 100%;
-    display: block;
-    transition: transform 1.5s var(--ease-luxury);
-}
-
-.nightjet-visual:hover img {
-    transform: scale(1.05);
-}
-
-.visual-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(2, 12, 23, 0.6), transparent);
-}
-
-.benefit-list {
-    list-style: none;
-    margin: 2.5rem 0;
-}
-
-.benefit-list li {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    color: var(--text-main);
-}
-
-.benefit-list li span {
-    color: var(--gold-primary);
-    font-size: 1.2rem;
-}
 
 
 
