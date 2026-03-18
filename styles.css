@@ -699,75 +699,100 @@ header.scrolled {
     border-color: var(--cd-light-blue);
 }
 
-/* TRUST BAR */
-/* TRUST SECTION REDESIGN */
+/* TRUST BAR REDESIGN */
 .trust-section {
-    padding: 5rem 6%;
-    background: var(--bg-primary);
+    padding: 6rem 6%;
+    background: linear-gradient(to bottom, var(--bg-primary) 0%, #030d1a 100%);
     border-top: 1px solid var(--border-subtle);
-    border-bottom: none; /* Removed to fix white line before Gastronomy */
+    position: relative;
+    overflow: hidden;
+}
+
+.trust-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(ellipse, rgba(201, 168, 76, 0.03) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .trust-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0;
+    gap: 2rem;
     max-width: var(--container-max);
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .trust-item {
     text-align: center;
     position: relative;
-    padding: 2.5rem 1.5rem;
-    transition: all 0.4s var(--ease-luxury);
-    border: 1px solid transparent;
+    padding: 3rem 2rem;
+    transition: all 0.5s var(--ease-luxury);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    background: rgba(2, 12, 23, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
 }
 
 .trust-item:hover {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(201, 168, 76, 0.1);
-    transform: translateY(-5px);
-    border-radius: 8px;
-    z-index: 2;
-}
-
-.trust-item:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 25%;
-    height: 50%;
-    width: 1px;
-    background: linear-gradient(to bottom, transparent, var(--border-gold), transparent);
-    opacity: 0.5;
+    background: rgba(201, 168, 76, 0.03);
+    border-color: rgba(201, 168, 76, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(201, 168, 76, 0.1);
 }
 
 .trust-icon {
-    font-size: 1.8rem;
-    margin-bottom: 1.2rem;
-    display: block;
-    filter: drop-shadow(0 0 15px rgba(201, 168, 76, 0.2));
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    color: var(--gold-primary);
+    filter: drop-shadow(0 0 10px rgba(201, 168, 76, 0.3));
+    transition: transform 0.5s var(--ease-luxury), color 0.5s ease;
+}
+
+.trust-item:hover .trust-icon {
+    transform: scale(1.1);
+    color: var(--gold-light);
+}
+
+.trust-icon svg {
+    width: 40px;
+    height: 40px;
 }
 
 .trust-number-wrap {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
 .trust-number {
     font-family: var(--font-display);
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--gold-light);
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: var(--text-main);
     line-height: 1;
+    letter-spacing: -1px;
+    transition: color 0.3s ease;
+}
+
+.trust-item:hover .trust-number {
+    color: var(--gold-light);
+    text-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
 }
 
 .trust-desc {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 2.5px;
+    letter-spacing: 2px;
     color: var(--text-muted);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 /* PROMOTIONS */
