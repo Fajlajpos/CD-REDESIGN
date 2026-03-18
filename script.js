@@ -45,42 +45,29 @@ window.addEventListener('scroll', () => {
 // --- Parallax Effect Removed ---
 
 
-// --- Animated Counters in Trust Bar ---
-const counters = document.querySelectorAll('.counter');
-let countersStarted = false;
-
-const counterSection = document.querySelector('.trust-section');
-if (counterSection) {
-    const counterObserver = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && !countersStarted) {
-            countersStarted = true;
-            counters.forEach(counter => {
-                const updateCount = () => {
-                    const target = +counter.getAttribute('data-target');
-                    const currentString = counter.innerText.replace(/[^\d.]/g, '');
-                    const current = currentString === '' ? 0 : +currentString;
-                    const suffix = counter.getAttribute('data-suffix') || '';
-
-                    let inc = target / 50;
-                    if (target < 10) inc = 0.1;
-
-                    if (current < target) {
-                        let nextVal = current + inc;
-                        if (target % 1 === 0 && target > 10) {
-                            counter.innerText = Math.ceil(nextVal) + suffix;
-                        } else {
-                            counter.innerText = nextVal.toFixed(1) + suffix;
-                        }
-                        setTimeout(updateCount, 30);
-                    } else {
-                        counter.innerText = target + suffix;
-                    }
-                };
-                updateCount();
-            });
-        }
-    }, { threshold: 0.2 });
-    counterObserver.observe(counterSection);
+// --- Smooth Reveal for Destination Cards (Optional Enhancement) ---
+const destCards = document.querySelectorAll('.destination-card');
+if (destCards.length > 0) {
+    const destObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-active');
+            }
+        });
+    }, { threshold: 0.1 });
+    destCards.forEach(card => {
+        destObserver.observe(card);
+        
+        // Mouse Tracking for Pure Edge Glint
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            
+            card.style.setProperty('--mouse-x', `${x}%`);
+            card.style.setProperty('--mouse-y', `${y}%`);
+        });
+    });
 }
 
 // --- Date Input Setup ---
