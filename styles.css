@@ -1432,7 +1432,7 @@ footer {
     letter-spacing: 3px;
     margin-bottom: 1rem;
     position: relative;
-    padding-left: 40px;
+    padding-left: 100px;
 }
 
 .premium-tag::before {
@@ -1440,7 +1440,7 @@ footer {
     position: absolute;
     left: 0;
     top: 50%;
-    width: 30px;
+    width: 80px;
     height: 1px;
     background: var(--gold-primary);
 }
@@ -1535,7 +1535,7 @@ footer {
     padding-left: 12rem; /* Pushed significantly further to the right as requested */
 }
 
-.premium-tag {
+.cinematic-content .premium-tag {
     display: block;
     font-size: 0.9rem;
     text-transform: uppercase;
