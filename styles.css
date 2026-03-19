@@ -68,17 +68,14 @@ body {
 
 .gold-text {
     color: var(--gold-light);
-    font-style: italic;
     font-weight: 600;
 }
 
 .shimmer {
-    color: #ceb362;
-    /* Less saturated, elegant gold */
+    color: #dfc476; /* Slightly more champagne/refined gold */
     font-weight: 800;
     letter-spacing: 1.5px;
-    text-shadow: none;
-    /* Removed glow effect */
+    text-shadow: 0 0 10px rgba(223, 196, 118, 0.2); /* Subtle glow added back */
     -webkit-text-fill-color: initial;
     background-clip: initial;
 }
@@ -313,6 +310,7 @@ header.scrolled {
     text-align: center;
     width: 100%;
     max-width: 800px;
+    margin-top: 6vh; /* Adjusted for better vertical balance */
 }
 
 .hero-video-wrap {
@@ -364,12 +362,24 @@ header.scrolled {
 }
 
 .hero-title {
-    font-family: var(--font-display);
-    font-size: 3.5rem;
-    line-height: 1.1;
+    font-family: var(--font-display); /* Playfair Display */
+    font-size: 3.2rem;
+    line-height: 1.2;
     font-weight: 400;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     text-align: center;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.hero-title .gold-text {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-style: italic;
+    color: var(--gold-light);
+    letter-spacing: 1px;
+    text-shadow: 0 0 15px rgba(223, 196, 118, 0.2);
 }
 
 /* AUTHENTIC CD SEARCH WIDGET LUXURY PORT */
