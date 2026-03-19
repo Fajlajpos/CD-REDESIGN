@@ -701,35 +701,6 @@ header.scrolled {
     transform: translateY(30px);
 }
 
-/* THE GLINT LAYER - Sharp and Responsive */
-.destination-card::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    z-index: 5;
-    pointer-events: none;
-    background: radial-gradient(
-        150px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-        #ffffff 0%, 
-        rgba(255, 255, 255, 0.5) 20%,
-        transparent 50%
-    );
-    opacity: 0;
-    transition: none; /* Instant disappearance on leave */
-    
-    /* MASK TO ONLY BORDER AREA */
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    padding: 2px;
-}
-
-.destination-card:hover::after {
-    opacity: 1;
-    transition: opacity 0.3s ease; /* Smooth fade-in only */
-}
-
 .destination-card:hover {
     border-color: rgba(201, 168, 76, 0.6);
     transform: translateY(-10px) scale(1.01);
