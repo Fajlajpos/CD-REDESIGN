@@ -1442,17 +1442,6 @@ footer {
     letter-spacing: 3px;
     margin-bottom: 1rem;
     position: relative;
-    padding-left: 100px;
-}
-
-.premium-tag::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 80px;
-    height: 1px;
-    background: var(--gold-primary);
 }
 
 /* SECTION 9: GASTRONOMY */
