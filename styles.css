@@ -1436,7 +1436,7 @@ footer {
 .premium-tag {
     display: inline-block;
     color: var(--gold-primary);
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 3px;
