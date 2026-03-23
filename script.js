@@ -37,16 +37,16 @@ setInterval(() => {
 document.addEventListener('DOMContentLoaded', () => {
 
 const config = {
-  scale: -70, // Visibly pronounced liquid magnification
-  border: 0.15, // Map edge pushed safely inwards to physically prevent blue screen haze
+  scale: 0, // Starts at 0 (completely transparent, no distortion at top of page)
+  border: 0.15, // Map edge pushed safely inwards
   lightness: 60, // Brighter optical core
   alpha: 0.85,
   mapBlur: 30, // Thick liquid lens slope
   
-  // Chromatic Aberration RGB split (Pronounced but safely clamped)
+  // Chromatic Aberration RGB split starts at 0
   r: 0,
-  g: 5,
-  b: 12,
+  g: 0,
+  b: 0,
   
   // Dimensions
   width: window.innerWidth,
@@ -123,7 +123,10 @@ window.addEventListener('resize', buildDisplacementImage);
 const header = document.getElementById('header');
 
 header.addEventListener('mousemove', (e) => {
-    // Liquid bubble dynamically follows the cursor by scaling RGB splits
+    // Only apply liquid hover effect if the header is active/scrolled
+    if (!header.classList.contains('scrolled')) return;
+
+    // Liquid bubble dynamically follows the cursor
     const x = e.clientX / window.innerWidth;
     
     gsap.to(config, {
@@ -137,11 +140,13 @@ header.addEventListener('mousemove', (e) => {
 });
 
 header.addEventListener('mouseleave', () => {
-    // Return to baseline
+    if (!header.classList.contains('scrolled')) return;
+
+    // Return to baseline liquid
     gsap.to(config, {
-        scale: -70,
+        scale: -80,
         r: 0,
-        b: 12,
+        b: 10,
         duration: 0.8,
         ease: "back.out(1.5)",
         onUpdate: applyFilterParams
@@ -154,9 +159,9 @@ window.addEventListener('scroll', () => {
         header.classList.add('scrolled');
         if (window.gsap) {
             gsap.to(config, {
-                scale: -120, // pronounced refraction on scroll
-                r: 3,
-                b: 16,
+                scale: -80, // Smooth transition to pronounced refraction
+                r: 4,
+                b: 12, // Activate RGB split
                 duration: 0.5,
                 onUpdate: applyFilterParams
             });
@@ -165,9 +170,9 @@ window.addEventListener('scroll', () => {
         header.classList.remove('scrolled');
         if (window.gsap) {
             gsap.to(config, {
-                scale: -70,
+                scale: 0, // completely transparent/no lens at top
                 r: 0,
-                b: 12,
+                b: 0,
                 duration: 0.5,
                 onUpdate: applyFilterParams
             });

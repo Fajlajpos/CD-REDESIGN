@@ -147,13 +147,13 @@ header {
     z-index: 1000;
     padding: 0 4%;
     
-    /* LIQUID GLASS START: True Apple Pure CodePen */
-    background: rgba(10, 15, 25, 0.4); 
-    backdrop-filter: blur(6px) url(#filter) saturate(2.0) brightness(1.1); /* Reduced blur to make liquid shift highly visible */
-    -webkit-backdrop-filter: blur(6px) url(#filter) saturate(2.0) brightness(1.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Apple thin line */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transition: background 0.4s ease, border-bottom 0.4s ease;
+    /* INITIAL STATE: Completely Transparent at the top */
+    background: transparent; 
+    backdrop-filter: blur(0px) url(#filter) saturate(1.0) brightness(1.0);
+    -webkit-backdrop-filter: blur(0px) url(#filter) saturate(1.0) brightness(1.0);
+    border-bottom: 1px solid transparent;
+    box-shadow: none;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 header .header-inner {
@@ -166,10 +166,11 @@ header .header-inner {
 }
 
 header.scrolled {
-    background: rgba(10, 15, 25, 0.7);
-    backdrop-filter: blur(10px) url(#filter) saturate(2.5) brightness(1.1); 
-    -webkit-backdrop-filter: blur(10px) url(#filter) saturate(2.5) brightness(1.1); 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(10, 15, 25, 0.5); /* Deep rich Apple dark mode background */
+    backdrop-filter: blur(8px) url(#filter) saturate(2.2) brightness(1.1); 
+    -webkit-backdrop-filter: blur(8px) url(#filter) saturate(2.2) brightness(1.1); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -250,10 +251,11 @@ header.scrolled {
 }
 
 .nav-secondary a {
-    color: var(--text-muted);
+    color: var(--text-main); /* Změněno z text-muted na hlavní bílou */
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); /* Přidán jemný stín pro dokonalou čitelnost i přes světlé fotky */
     text-decoration: none;
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 600; /* Zesíleno z 500 na 600 pro lepší viditelnost */
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: color 0.3s ease;
@@ -268,6 +270,9 @@ header.scrolled {
     align-items: center;
     gap: 8px;
     cursor: pointer;
+    color: var(--text-main);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    font-weight: 600;
 }
 
 .flag-icon {
