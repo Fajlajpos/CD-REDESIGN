@@ -149,8 +149,8 @@ header {
     
     /* LIQUID GLASS START: True Apple Pure CodePen */
     background: rgba(10, 15, 25, 0.4); 
-    backdrop-filter: blur(10px) url(#filter) saturate(1.8) brightness(1.1); /* Combines soft Apple blur with the liquid SVG aberration */
-    -webkit-backdrop-filter: blur(10px) url(#filter) saturate(1.8) brightness(1.1);
+    backdrop-filter: blur(6px) url(#filter) saturate(2.0) brightness(1.1); /* Reduced blur to make liquid shift highly visible */
+    -webkit-backdrop-filter: blur(6px) url(#filter) saturate(2.0) brightness(1.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Apple thin line */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transition: background 0.4s ease, border-bottom 0.4s ease;
@@ -167,8 +167,8 @@ header .header-inner {
 
 header.scrolled {
     background: rgba(10, 15, 25, 0.7);
-    backdrop-filter: blur(15px) url(#filter) saturate(2.0) brightness(1.1); 
-    -webkit-backdrop-filter: blur(15px) url(#filter) saturate(2.0) brightness(1.1); 
+    backdrop-filter: blur(10px) url(#filter) saturate(2.5) brightness(1.1); 
+    -webkit-backdrop-filter: blur(10px) url(#filter) saturate(2.5) brightness(1.1); 
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
