@@ -29,6 +29,18 @@
     --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
     --transition-slow: 0.6s var(--ease-luxury);
     --transition-fast: 0.3s ease;
+
+    /* LIQUID GLASS VARIABLES */
+    --lg-width: 100%;
+    --lg-height: 105px;
+    --lg-radius: 0;
+    --lg-frost: 0.05;
+    --lg-saturation: 1.5;
+    --lg-output-blur: 0.2;
+    --lg-alpha: 0.93;
+    --lg-lightness: 10;
+    --lg-blur: 11;
+    --lg-border: 0.07;
 }
 
 /* RESET & BASE */
@@ -128,16 +140,20 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 0.1rem 4%;
+    height: 105px; /* Exact height from logo */
     display: flex;
     justify-content: center;
-    /* Center to narrow with max-width */
     align-items: center;
     z-index: 1000;
-    background: rgba(2, 12, 23, 0.95);
-    backdrop-filter: blur(20px);
-    transition: var(--transition-slow);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0 4%;
+    
+    /* LIQUID GLASS START: True Apple Pure CodePen */
+    background: rgba(10, 15, 25, 0.4); 
+    backdrop-filter: blur(10px) url(#filter) saturate(1.8) brightness(1.1); /* Combines soft Apple blur with the liquid SVG aberration */
+    -webkit-backdrop-filter: blur(10px) url(#filter) saturate(1.8) brightness(1.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Apple thin line */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: background 0.4s ease, border-bottom 0.4s ease;
 }
 
 header .header-inner {
@@ -146,12 +162,14 @@ header .header-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    pointer-events: auto; /* Ensure interactions work */
 }
 
 header.scrolled {
-    padding: 0.1rem 4%;
-    background: rgba(2, 12, 23, 0.98);
-    border-bottom: 1px solid var(--border-subtle);
+    background: rgba(10, 15, 25, 0.7);
+    backdrop-filter: blur(15px) url(#filter) saturate(2.0) brightness(1.1); 
+    -webkit-backdrop-filter: blur(15px) url(#filter) saturate(2.0) brightness(1.1); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .logo {

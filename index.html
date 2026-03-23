@@ -385,8 +385,31 @@
         </div>
     </footer>
 
-    <!-- Extracted External JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
     <script src="script.js"></script>
-</body>
+
+    <!-- PURE ORIGINAL LIQUID GLASS FILTER (CODEPEN JHEY STYLE) -->
+    <svg class="filter" xmlns="http://www.w3.org/2000/svg" style="position: absolute; width: 0; height: 0; pointer-events: none; overflow: hidden;">
+        <defs>
+          <filter id="filter" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+            <feImage id="feMap" x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="map"></feImage>
+            
+            <feDisplacementMap in="SourceGraphic" in2="map" id="redchannel" xChannelSelector="R" yChannelSelector="G" result="dispRed" />
+            <feColorMatrix in="dispRed" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="red" />
+            
+            <feDisplacementMap in="SourceGraphic" in2="map" id="greenchannel" xChannelSelector="R" yChannelSelector="G" result="dispGreen" />
+            <feColorMatrix in="dispGreen" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="green" />
+            
+            <feDisplacementMap in="SourceGraphic" in2="map" id="bluechannel" xChannelSelector="R" yChannelSelector="G" result="dispBlue" />
+            <feColorMatrix in="dispBlue" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="blue" />
+            
+            <feBlend in="red" in2="green" mode="screen" result="rg" />
+            <feBlend in="rg" in2="blue" mode="screen" result="output" />
+            <feGaussianBlur in="output" id="outputBlur" stdDeviation="0.5" />
+          </filter>
+        </defs>
+    </svg>
+    </body>
 
 </html>
